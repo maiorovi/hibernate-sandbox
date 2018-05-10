@@ -8,6 +8,7 @@ import org.hibernate.Transaction;
 import javax.persistence.EntityManager;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Demo {
 
@@ -17,11 +18,12 @@ public class Demo {
 
         final Transaction transaction = session.beginTransaction();
 
-        Message m = new Message();
-        m.setMessage("msg");
-        m.setDateExperiment(LocalDate.of(2018, 2, 20));
-        m.setLocalDateTime(LocalDateTime.now());
-
+//        Message m = new Message();
+//        m.setMessage("msg");
+//        m.setDateExperiment(LocalDate.of(2018, 2, 20));
+//        m.setLocalDateTime(LocalDateTime.now());
+//        m.setLocalTime(LocalTime.now());
+//
 //        session.save(m);
 
         final Message load = session.load(Message.class, 1L);

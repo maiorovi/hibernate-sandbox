@@ -5,6 +5,7 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "message")
@@ -21,10 +22,12 @@ public class Message {
     @Type(type="core.snd.LocalDateTimeUserType")
     private LocalDateTime localDateTime;
 
+    @Type(type="core.snd.LocalTimeUserType")
+    private LocalTime localTime1;
+
     public void setId(Long id) {
         this.id = id;
     }
-
 
     public Long getId() {
         return id;
@@ -61,7 +64,16 @@ public class Message {
         sb.append(", message='").append(message).append('\'');
         sb.append(", dateExperiment=").append(dateExperiment);
         sb.append(", localDateTime=").append(localDateTime);
+        sb.append(", localTime=").append(localTime1);
         sb.append('}');
         return sb.toString();
+    }
+
+    public LocalTime getLocalTime() {
+        return localTime1;
+    }
+
+    public void setLocalTime(LocalTime localTime1) {
+        this.localTime1 = localTime1;
     }
 }
